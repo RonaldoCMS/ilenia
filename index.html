@@ -6,63 +6,67 @@
   <title>Messaggio per Ilenia</title>
   <!-- Favicon a forma di cuore -->
   <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg">
+  <!-- Preload della musica -->
+  <link rel="preload" href="https://assets.mixkit.co/music/preview/mixkit-romantic-touch-115.mp3" as="audio" type="audio/mpeg">
+  <!-- CSS minimizzato -->
   <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f9f9f9;
-      font-family: 'Arial', sans-serif;
-    }
-
-    .container {
-      text-align: center;
-    }
-
-    .dedica {
-      font-size: 32px;
-      font-weight: bold;
-      color: #e91e63;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
-
-    .messaggio {
-      font-size: 24px;
-      font-weight: bold;
-      color: #673ab7;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    .cuore {
-      font-size: 60px;
-      color: #ff0000;
-      animation: pulse 1s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.5);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
+    *{margin:0;padding:0;box-sizing:border-box}body{display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a6c1ee);background-size:400% 400%;animation:gradientBG 15s ease infinite;font-family:Arial,sans-serif;overflow:hidden;position:relative}.stars{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}.stars span{position:absolute;background:#fff;border-radius:50%;box-shadow:0 0 10px rgba(255,255,255,0.8);animation:twinkle linear infinite}@keyframes gradientBG{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}@keyframes twinkle{0%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(0)}}.container{text-align:center;animation:fadeIn 2s ease-in-out;position:relative;z-index:1}@keyframes fadeIn{0%{opacity:0;transform:translateY(-20px)}100%{opacity:1;transform:translateY(0)}}.dedica{font-size:42px;font-weight:700;color:#fff;font-style:italic;text-shadow:2px 2px 4px rgba(0,0,0,0.3);margin-bottom:20px;animation:slideIn 1.5s ease-out}@keyframes slideIn{0%{opacity:0;transform:translateX(-100%)}100%{opacity:1;transform:translateX(0)}}.messaggio{font-size:28px;font-weight:700;color:#fff;line-height:1.5;text-shadow:2px 2px 4px rgba(0,0,0,0.3);margin-bottom:30px;overflow:hidden;white-space:nowrap;border-right:2px solid #fff;animation:typing 4s steps(40,end),blink-caret .75s step-end infinite}@keyframes typing{from{width:0}to{width:100%}}@keyframes blink-caret{from,to{border-color:transparent}50%{border-color:#fff}}.cuore{font-size:80px;color:red;animation:pulse 1.5s infinite,glow 2s infinite,rotate 4s infinite;display:inline-block;cursor:pointer;transition:transform .3s ease;will-change:transform,opacity}.cuore:hover{transform:scale(1.2)}@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}@keyframes glow{0%{text-shadow:0 0 10px red,0 0 20px red,0 0 30px red}50%{text-shadow:0 0 20px red,0 0 30px red,0 0 40px red}100%{text-shadow:0 0 10px red,0 0 20px red,0 0 30px red}}@keyframes rotate{0%{transform:rotate(0)}25%{transform:rotate(5deg)}75%{transform:rotate(-5deg)}100%{transform:rotate(0)}}.heart-rain{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2}.heart-rain span{position:absolute;color:red;font-size:24px;animation:fall linear infinite}@keyframes fall{0%{transform:translateY(-10%)}100%{transform:translateY(110%)}}.firma{font-size:24px;color:#fff;margin-top:30px;font-style:italic;text-shadow:2px 2px 4px rgba(0,0,0,0.3);animation:fadeIn 2s ease-in-out 1s;animation-fill-mode:both}
   </style>
 </head>
 <body>
+  <!-- Stelle animate -->
+  <div class="stars">
+    <script>
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement('span');
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.width = `${Math.random() * 4 + 2}px`;
+        star.style.height = star.style.width;
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        document.querySelector('.stars').appendChild(star);
+      }
+    </script>
+  </div>
+
+  <!-- Contenuto principale -->
   <div class="container">
     <div class="dedica">Per Ilenia</div>
     <div class="messaggio">
       Quando sei triste, ricordati che<br>quando ti vedo il mio cuore fa questo
     </div>
-    <div class="cuore">❤️</div>
+    <div class="cuore" onclick="createHeartRain()">❤️</div>
+    <div class="firma">Fabio</div>
   </div>
+
+  <!-- Pioggia di cuori -->
+  <div class="heart-rain" id="heart-rain"></div>
+
+  <!-- Musica di sottofondo -->
+  <audio id="background-music" loop>
+    <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-touch-115.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Avvia la musica solo dopo l'interazione dell'utente
+    const music = document.getElementById('background-music');
+    window.addEventListener('click', () => {
+      music.play();
+    });
+
+    // Funzione per creare la pioggia di cuori
+    function createHeartRain() {
+      const heartRain = document.getElementById('heart-rain');
+      for (let i = 0; i < 50; i++) {
+        const heart = document.createElement('span');
+        heart.innerHTML = '❤️';
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${Math.random() * 2 + 1}s`;
+        heart.style.fontSize = `${Math.random() * 24 + 16}px`;
+        heartRain.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+      }
+    }
+  </script>
 </body>
 </html>
