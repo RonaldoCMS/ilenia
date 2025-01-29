@@ -2,15 +2,272 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Messaggio per Ilenia</title>
   <!-- Favicon a forma di cuore -->
   <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg">
-  <!-- Preload della musica -->
-  <link rel="preload" href="https://assets.mixkit.co/music/preview/mixkit-romantic-touch-115.mp3" as="audio" type="audio/mpeg">
-  <!-- CSS minimizzato -->
+  <!-- CSS ottimizzato per mobile -->
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}body{display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a6c1ee);background-size:400% 400%;animation:gradientBG 15s ease infinite;font-family:Arial,sans-serif;overflow:hidden;position:relative}.stars{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}.stars span{position:absolute;background:#fff;border-radius:50%;box-shadow:0 0 10px rgba(255,255,255,0.8);animation:twinkle linear infinite}@keyframes gradientBG{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}@keyframes twinkle{0%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(0)}}.container{text-align:center;animation:fadeIn 2s ease-in-out;position:relative;z-index:1}@keyframes fadeIn{0%{opacity:0;transform:translateY(-20px)}100%{opacity:1;transform:translateY(0)}}.dedica{font-size:42px;font-weight:700;color:#fff;font-style:italic;text-shadow:2px 2px 4px rgba(0,0,0,0.3);margin-bottom:20px;animation:slideIn 1.5s ease-out}@keyframes slideIn{0%{opacity:0;transform:translateX(-100%)}100%{opacity:1;transform:translateX(0)}}.messaggio{font-size:28px;font-weight:700;color:#fff;line-height:1.5;text-shadow:2px 2px 4px rgba(0,0,0,0.3);margin-bottom:30px;overflow:hidden;white-space:nowrap;border-right:2px solid #fff;animation:typing 4s steps(40,end),blink-caret .75s step-end infinite}@keyframes typing{from{width:0}to{width:100%}}@keyframes blink-caret{from,to{border-color:transparent}50%{border-color:#fff}}.cuore{font-size:80px;color:red;animation:pulse 1.5s infinite,glow 2s infinite,rotate 4s infinite;display:inline-block;cursor:pointer;transition:transform .3s ease;will-change:transform,opacity}.cuore:hover{transform:scale(1.2)}@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}@keyframes glow{0%{text-shadow:0 0 10px red,0 0 20px red,0 0 30px red}50%{text-shadow:0 0 20px red,0 0 30px red,0 0 40px red}100%{text-shadow:0 0 10px red,0 0 20px red,0 0 30px red}}@keyframes rotate{0%{transform:rotate(0)}25%{transform:rotate(5deg)}75%{transform:rotate(-5deg)}100%{transform:rotate(0)}}.heart-rain{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2}.heart-rain span{position:absolute;color:red;font-size:24px;animation:fall linear infinite}@keyframes fall{0%{transform:translateY(-10%)}100%{transform:translateY(110%)}}.firma{font-size:24px;color:#fff;margin-top:30px;font-style:italic;text-shadow:2px 2px 4px rgba(0,0,0,0.3);animation:fadeIn 2s ease-in-out 1s;animation-fill-mode:both}
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Sfondo animato */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Stelle animate (ridotte su mobile) */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .stars span {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+
+    /* Contenitore principale */
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Dedica */
+    .dedica {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      font-style: italic;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 1rem;
+      animation: slideIn 1.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Messaggio */
+    .messaggio {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      line-height: 1.5;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid white;
+      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink-caret {
+      from, to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: white;
+      }
+    }
+
+    /* Cuore pulsante */
+    .cuore {
+      font-size: 4rem;
+      color: #ff0000;
+      animation: pulse 1.5s infinite, glow 2s infinite, rotate 4s infinite;
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      will-change: transform, opacity;
+    }
+
+    .cuore:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+      }
+      50% {
+        text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+      }
+      100% {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+      }
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(5deg);
+      }
+      75% {
+        transform: rotate(-5deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    /* Pioggia di cuori */
+    .heart-rain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .heart-rain span {
+      position: absolute;
+      color: #ff0000;
+      font-size: 1.5rem;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%);
+      }
+      100% {
+        transform: translateY(110%);
+      }
+    }
+
+    /* Firma */
+    .firma {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-top: 1.5rem;
+      font-style: italic;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 2s ease-in-out 1s;
+      animation-fill-mode: both;
+    }
+
+    /* Ottimizzazione per schermi piccoli */
+    @media (max-width: 600px) {
+      .dedica {
+        font-size: 1.5rem;
+      }
+
+      .messaggio {
+        font-size: 1.2rem;
+      }
+
+      .cuore {
+        font-size: 3rem;
+      }
+
+      .firma {
+        font-size: 0.5rem;
+      }
+
+      /* Riduci il numero di stelle su mobile */
+      .stars span {
+        display: none;
+      }
+
+      .stars span:nth-child(-n+20) {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -42,22 +299,11 @@
   <!-- Pioggia di cuori -->
   <div class="heart-rain" id="heart-rain"></div>
 
-  <!-- Musica di sottofondo -->
-  <audio id="background-music" loop>
-    <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-touch-115.mp3" type="audio/mpeg">
-  </audio>
-
   <script>
-    // Avvia la musica solo dopo l'interazione dell'utente
-    const music = document.getElementById('background-music');
-    window.addEventListener('click', () => {
-      music.play();
-    });
-
     // Funzione per creare la pioggia di cuori
     function createHeartRain() {
       const heartRain = document.getElementById('heart-rain');
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 30; i++) { // Riduci il numero di cuori su mobile
         const heart = document.createElement('span');
         heart.innerHTML = '❤️';
         heart.style.left = `${Math.random() * 100}%`;
