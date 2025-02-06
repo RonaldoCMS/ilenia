@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Messaggio per Ilenia</title>
+  <title>Per Te ❤️</title>
   <!-- Favicon a forma di cuore -->
   <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg">
-  <!-- CSS ottimizzato per mobile -->
+  <!-- CSS -->
   <style>
     /* Reset */
     * {
@@ -15,34 +15,33 @@
       box-sizing: border-box;
     }
 
-    /* Sfondo animato */
+    /* Sfondo romantico e nostalgico */
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       margin: 0;
-      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      font-family: 'Arial', sans-serif;
+      background: #0a0a1a; /* Sfondo notte */
+      font-family: 'Georgia', serif;
       overflow: hidden;
       position: relative;
     }
 
-    @keyframes gradientBG {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+    /* Mezzaluna */
+    .moon {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      width: 100px;
+      height: 100px;
+      background: transparent;
+      border-radius: 50%;
+      box-shadow: -20px 10px 0 0 #f5f5dc; /* Mezzaluna */
+      z-index: 1;
     }
 
-    /* Stelle animate (ridotte su mobile) */
+    /* Stelle animate */
     .stars {
       position: absolute;
       top: 0;
@@ -80,7 +79,7 @@
       text-align: center;
       animation: fadeIn 2s ease-in-out;
       position: relative;
-      z-index: 1;
+      z-index: 2;
       padding: 20px;
     }
 
@@ -95,69 +94,26 @@
       }
     }
 
-    /* Dedica */
-    .dedica {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #fff;
-      font-style: italic;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      margin-bottom: 1rem;
-      animation: slideIn 1.5s ease-out;
-    }
-
-    @keyframes slideIn {
-      0% {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    /* Messaggio */
+    /* Messaggio romantico */
     .messaggio {
       font-size: 1.5rem;
       font-weight: bold;
       color: #fff;
-      line-height: 1.5;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      line-height: 1.6;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       margin-bottom: 1.5rem;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid white;
-      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
     }
 
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes blink-caret {
-      from, to {
-        border-color: transparent;
-      }
-      50% {
-        border-color: white;
-      }
-    }
-
-    /* Cuore pulsante */
+    /* Cuore pulsante (centrale e grande) */
     .cuore {
-      font-size: 4rem;
-      color: #ff0000;
-      animation: pulse 1.5s infinite, glow 2s infinite, rotate 4s infinite;
+      font-size: 8rem;
+      color: #ff6f61;
+      animation: pulse 1.5s infinite, glow 2s infinite;
       display: inline-block;
       cursor: pointer;
       transition: transform 0.3s ease;
       will-change: transform, opacity;
+      margin-top: 1rem;
     }
 
     .cuore:hover {
@@ -178,85 +134,66 @@
 
     @keyframes glow {
       0% {
-        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
       }
       50% {
-        text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+        text-shadow: 0 0 20px #ff6f61, 0 0 30px #ff6f61, 0 0 40px #ff6f61;
       }
       100% {
-        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
       }
     }
 
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-      25% {
-        transform: rotate(5deg);
-      }
-      75% {
-        transform: rotate(-5deg);
-      }
-      100% {
-        transform: rotate(0deg);
-      }
-    }
-
-    /* Pioggia di cuori */
-    .heart-rain {
+    /* Pioggia di stelle cadenti */
+    .star-rain {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 2;
+      z-index: 1;
     }
 
-    .heart-rain span {
+    .star-rain span {
       position: absolute;
-      color: #ff0000;
+      color: #fff;
       font-size: 1.5rem;
       animation: fall linear infinite;
     }
 
     @keyframes fall {
       0% {
-        transform: translateY(-10%);
+        transform: translateY(-10%) rotate(45deg);
       }
       100% {
-        transform: translateY(110%);
+        transform: translateY(110%) rotate(45deg);
       }
     }
 
-    /* Firma */
+    /* Firma piccola e discreta */
     .firma {
-      font-size: 1.2rem;
-      color: #fff;
-      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 2rem;
       font-style: italic;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
       animation: fadeIn 2s ease-in-out 1s;
       animation-fill-mode: both;
     }
 
     /* Ottimizzazione per schermi piccoli */
     @media (max-width: 600px) {
-      .dedica {
-        font-size: 1.5rem;
-      }
-
       .messaggio {
         font-size: 1.2rem;
       }
 
       .cuore {
-        font-size: 3rem;
+        font-size: 6rem;
       }
 
       .firma {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
       }
 
       /* Riduci il numero di stelle su mobile */
@@ -271,14 +208,17 @@
   </style>
 </head>
 <body>
+  <!-- Mezzaluna -->
+  <div class="moon"></div>
+
   <!-- Stelle animate -->
   <div class="stars">
     <script>
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 100; i++) {
         const star = document.createElement('span');
         star.style.top = `${Math.random() * 100}%`;
         star.style.left = `${Math.random() * 100}%`;
-        star.style.width = `${Math.random() * 4 + 2}px`;
+        star.style.width = `${Math.random() * 3 + 1}px`;
         star.style.height = star.style.width;
         star.style.animationDuration = `${Math.random() * 3 + 2}s`;
         document.querySelector('.stars').appendChild(star);
@@ -288,29 +228,47 @@
 
   <!-- Contenuto principale -->
   <div class="container">
-    <div class="dedica">Per Ilenia</div>
     <div class="messaggio">
-      Quando sei triste, ricordati che<br>quando ti vedo il mio cuore fa questo
+      Ogni volta che penso a te,<br>
+      il mio cuore fa un salto.<br>
+      Sei la mia luce nella notte,<br>
+      la mia mezzaluna nel cielo.<br>
+      ❤️
     </div>
-    <div class="cuore" onclick="createHeartRain()">❤️</div>
-    <div class="firma">Fabio</div>
+    <div class="cuore" onclick="startMusicAndCreateStarRain()">❤️</div>
+    <div class="firma">fabio</div>
   </div>
 
-  <!-- Pioggia di cuori -->
-  <div class="heart-rain" id="heart-rain"></div>
+  <!-- Pioggia di stelle cadenti -->
+  <div class="star-rain" id="star-rain"></div>
+
+  <!-- Audio in sottofondo -->
+  <audio id="background-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+    Il tuo browser non supporta l'elemento audio.
+  </audio>
 
   <script>
-    // Funzione per creare la pioggia di cuori
-    function createHeartRain() {
-      const heartRain = document.getElementById('heart-rain');
-      for (let i = 0; i < 30; i++) { // Riduci il numero di cuori su mobile
-        const heart = document.createElement('span');
-        heart.innerHTML = '❤️';
-        heart.style.left = `${Math.random() * 100}%`;
-        heart.style.animationDuration = `${Math.random() * 2 + 1}s`;
-        heart.style.fontSize = `${Math.random() * 24 + 16}px`;
-        heartRain.appendChild(heart);
-        setTimeout(() => heart.remove(), 3000);
+    // Funzione per avviare la musica e creare la pioggia di stelle cadenti
+    function startMusicAndCreateStarRain() {
+      const audio = document.getElementById('background-music');
+      audio.volume = 0.5; // Imposta il volume al 50%
+      audio.play(); // Avvia la musica
+
+      createStarRain(); // Crea la pioggia di stelle cadenti
+    }
+
+    // Funzione per creare la pioggia di stelle cadenti
+    function createStarRain() {
+      const starRain = document.getElementById('star-rain');
+      for (let i = 0; i < 30; i++) { // Numero di stelle cadenti
+        const star = document.createElement('span');
+        star.innerHTML = '✨';
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        star.style.fontSize = `${Math.random() * 24 + 16}px`;
+        starRain.appendChild(star);
+        setTimeout(() => star.remove(), 5000);
       }
     }
   </script>
