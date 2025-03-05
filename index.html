@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Per Te ❤️</title>
-  <!-- Favicon a forma di cuore -->
+  <title>Per Te 🌙</title>
+  <!-- Favicon a forma di luna -->
   <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg">
   <!-- CSS -->
   <style>
@@ -15,7 +15,7 @@
       box-sizing: border-box;
     }
 
-    /* Sfondo romantico e nostalgico */
+    /* Sfondo notte malinconico */
     body {
       display: flex;
       justify-content: center;
@@ -28,20 +28,21 @@
       position: relative;
     }
 
-    /* Mezzaluna */
+    /* Luna piena con un tocco di malinconia */
     .moon {
       position: absolute;
       top: 10%;
       right: 10%;
       width: 100px;
       height: 100px;
-      background: transparent;
+      background: #f5f5dc;
       border-radius: 50%;
-      box-shadow: -20px 10px 0 0 #f5f5dc; /* Mezzaluna */
+      box-shadow: 0 0 20px rgba(245, 245, 220, 0.5);
       z-index: 1;
+      opacity: 0.8;
     }
 
-    /* Stelle animate */
+    /* Stelle fisse e poco luminose */
     .stars {
       position: absolute;
       top: 0;
@@ -53,24 +54,20 @@
 
     .stars span {
       position: absolute;
-      background: white;
+      background: rgba(255, 255, 255, 0.3);
       border-radius: 50%;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
       animation: twinkle linear infinite;
     }
 
     @keyframes twinkle {
       0% {
-        opacity: 0;
-        transform: scale(0);
+        opacity: 0.3;
       }
       50% {
-        opacity: 1;
-        transform: scale(1);
+        opacity: 0.6;
       }
       100% {
-        opacity: 0;
-        transform: scale(0);
+        opacity: 0.3;
       }
     }
 
@@ -94,7 +91,7 @@
       }
     }
 
-    /* Messaggio romantico */
+    /* Messaggio malinconico */
     .messaggio {
       font-size: 1.5rem;
       font-weight: bold;
@@ -104,11 +101,11 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Cuore pulsante (centrale e grande) */
+    /* Cuore spezzato */
     .cuore {
       font-size: 8rem;
       color: #ff6f61;
-      animation: pulse 1.5s infinite, glow 2s infinite;
+      animation: pulse 1.5s infinite;
       display: inline-block;
       cursor: pointer;
       transition: transform 0.3s ease;
@@ -117,7 +114,7 @@
     }
 
     .cuore:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
 
     @keyframes pulse {
@@ -125,27 +122,15 @@
         transform: scale(1);
       }
       50% {
-        transform: scale(1.2);
+        transform: scale(1.1);
       }
       100% {
         transform: scale(1);
       }
     }
 
-    @keyframes glow {
-      0% {
-        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
-      }
-      50% {
-        text-shadow: 0 0 20px #ff6f61, 0 0 30px #ff6f61, 0 0 40px #ff6f61;
-      }
-      100% {
-        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
-      }
-    }
-
-    /* Pioggia di stelle cadenti */
-    .star-rain {
+    /* Pioggia di lacrime */
+    .tear-rain {
       position: absolute;
       top: 0;
       left: 0;
@@ -155,7 +140,7 @@
       z-index: 1;
     }
 
-    .star-rain span {
+    .tear-rain span {
       position: absolute;
       color: #fff;
       font-size: 1.5rem;
@@ -165,9 +150,11 @@
     @keyframes fall {
       0% {
         transform: translateY(-10%) rotate(45deg);
+        opacity: 0.6;
       }
       100% {
         transform: translateY(110%) rotate(45deg);
+        opacity: 0;
       }
     }
 
@@ -208,19 +195,19 @@
   </style>
 </head>
 <body>
-  <!-- Mezzaluna -->
+  <!-- Luna -->
   <div class="moon"></div>
 
-  <!-- Stelle animate -->
+  <!-- Stelle fisse -->
   <div class="stars">
     <script>
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 50; i++) {
         const star = document.createElement('span');
         star.style.top = `${Math.random() * 100}%`;
         star.style.left = `${Math.random() * 100}%`;
-        star.style.width = `${Math.random() * 3 + 1}px`;
+        star.style.width = `${Math.random() * 2 + 1}px`;
         star.style.height = star.style.width;
-        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        star.style.animationDuration = `${Math.random() * 4 + 2}s`;
         document.querySelector('.stars').appendChild(star);
       }
     </script>
@@ -229,46 +216,30 @@
   <!-- Contenuto principale -->
   <div class="container">
     <div class="messaggio">
-      Ogni volta che penso a te,<br>
-      il mio cuore fa un salto.<br>
-      Sei la mia luce nella notte,<br>
-      la mia mezzaluna nel cielo.<br>
-      ❤️
+      Ti amo, e non lo dimenticherò mai.<br>
+      Anche se è un arrivederci,<br>
+      sappi che sei parte di me.<br>
+      🌙
     </div>
-    <div class="cuore" onclick="startMusicAndCreateStarRain()">❤️</div>
+    <div class="cuore" onclick="createTearRain()">💔</div>
     <div class="firma">fabio</div>
   </div>
 
-  <!-- Pioggia di stelle cadenti -->
-  <div class="star-rain" id="star-rain"></div>
-
-  <!-- Audio in sottofondo -->
-  <audio id="background-music" loop>
-    <source src="song.mp3" type="audio/mpeg">
-    Il tuo browser non supporta l'elemento audio.
-  </audio>
+  <!-- Pioggia di lacrime -->
+  <div class="tear-rain" id="tear-rain"></div>
 
   <script>
-    // Funzione per avviare la musica e creare la pioggia di stelle cadenti
-    function startMusicAndCreateStarRain() {
-      const audio = document.getElementById('background-music');
-      audio.volume = 0.5; // Imposta il volume al 50%
-      audio.play(); // Avvia la musica
-
-      createStarRain(); // Crea la pioggia di stelle cadenti
-    }
-
-    // Funzione per creare la pioggia di stelle cadenti
-    function createStarRain() {
-      const starRain = document.getElementById('star-rain');
-      for (let i = 0; i < 30; i++) { // Numero di stelle cadenti
-        const star = document.createElement('span');
-        star.innerHTML = '✨';
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-        star.style.fontSize = `${Math.random() * 24 + 16}px`;
-        starRain.appendChild(star);
-        setTimeout(() => star.remove(), 5000);
+    // Funzione per creare la pioggia di lacrime
+    function createTearRain() {
+      const tearRain = document.getElementById('tear-rain');
+      for (let i = 0; i < 20; i++) { // Numero di lacrime
+        const tear = document.createElement('span');
+        tear.innerHTML = '💧';
+        tear.style.left = `${Math.random() * 100}%`;
+        tear.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        tear.style.fontSize = `${Math.random() * 24 + 16}px`;
+        tearRain.appendChild(tear);
+        setTimeout(() => tear.remove(), 5000);
       }
     }
   </script>
